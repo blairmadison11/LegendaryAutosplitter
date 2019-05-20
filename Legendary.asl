@@ -7,7 +7,7 @@
 state("Legendary") {
 	bool isLoading: 0x1C36DC0;
 	bool isPlayerControl: 0x1B7D56C;
-	int map: 0x1C4329C;
+	int checkpoint: 0x1C4329C;
 }
 
 init {
@@ -16,11 +16,11 @@ init {
 }
 
 start {
-	return current.map == 334 && !old.isPlayerControl && current.isPlayerControl;
+	return current.checkpoint == 334 && !old.isPlayerControl && current.isPlayerControl;
 }
 
 split {
-	return old.map != current.map;
+	return old.checkpoint != current.checkpoint;
 }
 
 isLoading {
@@ -28,7 +28,7 @@ isLoading {
 }
 
 reset {
-	return old.map != 334 && current.map == 334;
+	return old.checkpoint != 334 && current.checkpoint == 334;
 }
 
 exit {
