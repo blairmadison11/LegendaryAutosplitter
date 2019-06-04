@@ -1,12 +1,11 @@
 // Legendary Autosplitter
+// Version 0.8
 // by blairmadison11
-
-// VERSION 0.00000000000000001
-// FOR ALPHA TESTING
 
 state("Legendary") {
 	bool isLoading: 0x1C36DC0;
 	bool isPlayerControl: 0x1B7D56C;
+	bool isOutOfMenu: 0x1C5E894;
 	int checkpoint: 0x1C4329C;
 }
 
@@ -16,11 +15,11 @@ init {
 }
 
 start {
-	return current.checkpoint == 334 && !old.isPlayerControl && current.isPlayerControl;
+	return current.checkpoint == 334 && !old.isPlayerControl && current.isPlayerControl && current.isOutOfMenu;
 }
 
 split {
-	return old.checkpoint != current.checkpoint;
+	return old.checkpoint != current.checkpoint && current.isOutOfMenu;
 }
 
 isLoading {
@@ -28,7 +27,7 @@ isLoading {
 }
 
 reset {
-	return old.checkpoint != 334 && current.checkpoint == 334;
+	return old.checkpoint != 334 && current.checkpoint == 334 && !current.isOutOfMenu;
 }
 
 exit {
