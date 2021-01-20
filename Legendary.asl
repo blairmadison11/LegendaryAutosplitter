@@ -1,12 +1,12 @@
 // Legendary Autosplitter
-// Version 0.8
+// Version 0.802
 // by blairmadison11
 
 state("Legendary") {
 	bool isLoading: 0x1C36DC0;
 	bool isPlayerControl: 0x1B7D56C;
 	bool isOutOfMenu: 0x1C64108;
-	int checkpoint: 0x1C4329C;
+	int checkpoint: 0x1C5FE24;
 }
 
 init {
