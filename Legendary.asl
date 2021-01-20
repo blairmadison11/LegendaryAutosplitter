@@ -5,8 +5,8 @@
 state("Legendary") {
 	bool isLoading: 0x1C36DC0;
 	bool isPlayerControl: 0x1B7D56C;
-	bool isOutOfMenu: 0x1C64108;
-	int checkpoint: 0x1C5FE24;
+	bool isOutOfMenu: 0x1C5FE24;
+	int checkpoint: 0x1C4329C;
 }
 
 init {
